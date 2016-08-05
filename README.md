@@ -1,6 +1,6 @@
 # node-letsencrypt-client
 
-Implementation of the [ACME protocol](https://letsencrypt.github.io/acme-spec/) to request certificates from [Let's Encrypt](https://letsencrypt.org/). 
+Implementation of the [ACME protocol](https://letsencrypt.github.io/acme-spec/) to request certificates from [Let's Encrypt](https://letsencrypt.org/).
 
 ## Installation
 
@@ -38,6 +38,18 @@ To register with Let's Encrypt, use the ```register()``` method.
 ```
 client.register().then(() => {
     console.log("Registered successfully");
+}, (error) => {
+    console.log("An error occured", error);
+});
+```
+
+### revoke(cert)
+
+To revoke a Let's Encrypt cert, use the ```revoke(cert)``` method.
+
+```
+client.revoke(cert).then(() => {
+    console.log("Certificate revoked");
 }, (error) => {
     console.log("An error occured", error);
 });
